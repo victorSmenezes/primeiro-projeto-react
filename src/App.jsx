@@ -4,15 +4,15 @@ import { v4 as uuid } from 'uuid';
 
 function App() {
   const [list, setList] = useState([{ id: uuid(), task: "Terminar as aulas de React no DevClub" }])
+  const [task, setTask] = useState('')
 
   const inputValue = (event) => {
-    console.log(event.target.value)
-    setList([{ id: uuid(), task: event.target.value }])
+    setTask(event.target.value)
   }
 
   const buttonClick = () => {
-    console.log('Clicado')
-  }
+    setList([...list,{ id: uuid(), task: task}]) 
+   }
 
   return (
     <div>
