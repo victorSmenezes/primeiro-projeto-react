@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import {Container} from './styles.js'
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
    }
 
   return (
-    <div>
+    <Container>
       <input onChange={inputValue} placeholder="O que tenho que fazer..." />
       <button onClick={buttonClick}>Adicionar</button>
 
@@ -25,7 +26,7 @@ function App() {
         ))
       }
       </ul>
-    </div>
+    </Container>
 
   )
 }
