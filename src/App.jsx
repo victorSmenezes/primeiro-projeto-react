@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FcEmptyTrash, FcCheckmark } from "react-icons/fc";
 import { v4 as uuid } from 'uuid';
 import { Container, ToDoList, Input, Button } from './styles.js';
 
@@ -22,7 +23,11 @@ function App() {
 
         <ul>{
           list.map(item => (
+            <div>
+              <FcCheckmark/>
             <li key={item.id}>{item.task}</li>
+            <FcEmptyTrash/>
+            </div>
           ))
         }
         </ul>
