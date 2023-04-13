@@ -15,6 +15,25 @@ function App() {
     setList([...list, { id: uuid(), task: task, finished: false }])
   }
 
+  const finishTask = (id) => {
+
+    const newList = list.map(item => (
+      item.id == id ? { ...item, finished: !item.finished } : item
+    ))
+
+    setList(newList)
+  }
+
+  const deleteTask = (id) => {
+
+   const newList = list.filter(item => (
+    item.id != id 
+    ))
+    setList(newList)
+  }
+ 
+
+
   return (
     <Container>
       <ToDoList>
@@ -22,13 +41,13 @@ function App() {
         <Button onClick={buttonClick}>Adicionar</Button>
 
         <ul>
-          {list.map(item => (
-          <ListItem isFinished={item.finished} key={item.id}>
-            <FcCheckmark />
-            <li>{item.task}</li>
-            <FcEmptyTrash />
-          </ListItem>
-        ))}
+          {list.map((item) => (
+            <ListItem isFinished={item.finished} key={item.id}>
+              <FcCheckmark onClick={() => finishTask(item.id)} />
+              <li>{item.task}</li>
+              <FcEmptyTrash onClick={() => deleteTask(item.id)} />
+            </ListItem>
+          ))}
         </ul>
       </ToDoList>
     </Container>
