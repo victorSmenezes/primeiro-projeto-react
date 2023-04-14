@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { FcEmptyTrash, FcCheckmark } from "react-icons/fc";
 import { v4 as uuid } from 'uuid';
-import { Container, ToDoList, Input, Button, ListItem } from './styles.js';
+import { Container, ToDoList, Input, Button, ListItem, NoTask, Trash, Check } from './styles.js';
 
 function App() {
-  const [list, setList] = useState([{ id: uuid(), task: "aulas de React no DevClub", finished: true }])
+  const [list, setList] = useState([])
   const [task, setTask] = useState('')
 
   const inputValue = (event) => {
@@ -12,7 +11,9 @@ function App() {
   }
 
   const buttonClick = () => {
-    setList([...list, { id: uuid(), task: task, finished: false }])
+    if (task) {
+      setList([...list, { id: uuid(), task: task, finished: false }])
+    }
   }
 
   const finishTask = (id) => {
@@ -26,12 +27,12 @@ function App() {
 
   const deleteTask = (id) => {
 
-   const newList = list.filter(item => (
-    item.id != id 
+    const newList = list.filter(item => (
+      item.id != id
     ))
     setList(newList)
   }
- 
+
 
 
   return (
@@ -41,13 +42,18 @@ function App() {
         <Button onClick={buttonClick}>Adicionar</Button>
 
         <ul>
-          {list.map((item) => (
-            <ListItem isFinished={item.finished} key={item.id}>
-              <FcCheckmark onClick={() => finishTask(item.id)} />
-              <li>{item.task}</li>
-              <FcEmptyTrash onClick={() => deleteTask(item.id)} />
-            </ListItem>
-          ))}
+          {list.length > 0 ?(
+            list.map((item) => (
+              <ListItem isFinished={item.finished} key={item.id}>
+                <Check onClick={() => finishTask(item.id)} />
+                <li>{item.task}</li>
+                <Trash onClick={() => deleteTask(item.id)} />
+              </ListItem>
+            )))
+            : (
+            <NoTask>Digite uma tarefa, atividade, lembrete...</NoTask>
+            )
+          }
         </ul>
       </ToDoList>
     </Container>

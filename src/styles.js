@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { FcEmptyTrash, FcCheckmark } from "react-icons/fc";
+
 export const Container = styled.div`
     background: linear-gradient(90deg, #246888 0%, #000000 81.25%);
     width: 100vw;
@@ -7,6 +9,11 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    ul{
+        margin-top: 30px;
+        padding-left: 15px;
+    }
 `
 
 export const ToDoList = styled.div`
@@ -18,9 +25,11 @@ export const ToDoList = styled.div`
 export const Input = styled.input`
     border: 2px solid rgba(209, 211, 212, 0.4);
     border-radius: 5px;
-    height: 40px;
-    margin-right: 40px;
-    width: 340px;
+    font-size: 16px;
+    padding-left: 10px;
+    height: 45px;
+    margin-right: 25px;
+    width: 390px;
 `
 export const Button = styled.button`
     background: #8052EC;
@@ -28,10 +37,11 @@ export const Button = styled.button`
     font-weight: 900;
     font-size: 17px;
     line-height: 2px;
-    height: 40px;
+    height: 50px;
     border: none;
     color: #FFFFFF;
     width: 130px;
+    cursor: pointer;
 `
 
 export const ListItem = styled.div`
@@ -44,9 +54,23 @@ export const ListItem = styled.div`
     justify-content: space-between;
     margin-bottom: 30px;
     padding: 0 30px;
-    width: 500px;
+    width: 490px;
 
     li{
         list-style: none;
     }
+`
+export const NoTask = styled.h3`
+    padding-top: 20px;
+    margin-bottom: 1px;
+    text-align: center;
+    color: #FFFFFF;
+`
+
+export const Trash = styled(FcEmptyTrash)`
+    cursor: pointer;
+`
+
+export const Check = styled(FcCheckmark)`
+    cursor: pointer;
 `
