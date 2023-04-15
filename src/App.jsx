@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { Container, ToDoList, Input, Button, ListItem, NoTask, Trash, Check } from './styles.js';
+import { Container, ToDoList, Input, Button, ListItem, NoTask, Trash, Check, Footer, Link } from './styles.js';
 
 function App() {
   const [list, setList] = useState([])
@@ -42,7 +42,7 @@ function App() {
         <Button onClick={buttonClick}>Adicionar</Button>
 
         <ul>
-          {list.length > 0 ?(
+          {list.length > 0 ? (
             list.map((item) => (
               <ListItem isFinished={item.finished} key={item.id}>
                 <Check onClick={() => finishTask(item.id)} />
@@ -51,11 +51,17 @@ function App() {
               </ListItem>
             )))
             : (
-            <NoTask>Digite uma tarefa, atividade, lembrete...</NoTask>
+              <NoTask>Digite uma tarefa, atividade, lembrete...</NoTask>
             )
           }
         </ul>
+        
       </ToDoList>
+
+      <Footer>
+        &copy;<Link href="https://www.linkedin.com/in/victor-santos-de-menezes/" target="_blank">Victor Santos</Link>
+      </Footer>
+
     </Container>
 
   )
