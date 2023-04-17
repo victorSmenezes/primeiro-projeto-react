@@ -14,7 +14,11 @@ export const Container = styled.div`
     ul{
         margin-top: 40px;
         padding-left: 10px;
+
+        @media screen and (max-width:500px){
+        margin-top: 5px;
     }
+    }    
 `
 
 export const ToDoList = styled.div`
@@ -23,10 +27,11 @@ export const ToDoList = styled.div`
     border-radius: 10px;
     
     @media screen and (max-width: 500px){
-        width: 350px;
-    }@media screen and (max-width: 500px){
-        width: 350px;
+        width: 70%;
+        display: flex;
+        flex-direction: column-reverse;
     }
+    
 `
 
 export const Input = styled.input`
@@ -39,11 +44,14 @@ export const Input = styled.input`
     width: 390px;
 
     @media screen and (max-width: 500px){
-        width: 350px;
+        width: auto;
+        margin-right: 5px;
+        display: flex;
+        flex-direction: column;
     }
 `
 export const Button = styled.button`
-    background: #8052EC;
+    background: #5a00b3;
     border-radius: 5px;
     font-weight: 900;
     font-size: 17px;
@@ -56,10 +64,19 @@ export const Button = styled.button`
 
     &:hover{
         opacity: .9;
+        color: #A8AFAF;
     }
 
     &:active{
-        opacity: .7;
+        opacity: .6;
+    }
+
+    @media screen and (max-width: 460px){
+        width: 100px;
+        position: relative;
+        left: 35%;
+        border-radius: 10px;
+        margin-bottom: 10px;
     }
 `
 
@@ -80,7 +97,10 @@ export const ListItem = styled.div`
     }
 
     @media screen and (max-width: 500px){
-        width: 250px;
+        width: auto;
+        font-size: 14px;
+        height: 70px;
+        margin-top: 10px;
     }
 `
 export const NoTask = styled.h3`
@@ -88,6 +108,12 @@ export const NoTask = styled.h3`
     margin-bottom: 1px;
     text-align: center;
     color: #FFFFFF;
+
+    @media screen and (max-width:500px){
+        padding-top: 2px;
+        margin-bottom: 5px;
+        margin-top: 2px;
+    }
 `
 
 export const Trash = styled(FcEmptyTrash)`
