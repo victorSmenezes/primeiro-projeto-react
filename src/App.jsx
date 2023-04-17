@@ -59,7 +59,7 @@ function App() {
       </ToDoList>
 
       <Footer>
-        &copy;<Link href="https://www.linkedin.com/in/victor-santos-de-menezes/" target="_blank">Victor Santos</Link>
+        <Link href="https://www.linkedin.com/in/victor-santos-de-menezes/" target="_blank">&copy;Victor Santos</Link>
       </Footer>
 
     </Container>
